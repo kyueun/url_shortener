@@ -15,9 +15,9 @@ def encode(index):
 def decode(url):
     result = 0
     # remove padding
-    url = url.lstrip(CODEC[0])
+    url = url.lstrip(CODEC[0])[::-1]
 
     for i in range(len(url)):
-        result += (pow(62, i)*CODEC.index(url))
+        result += pow(62, i)*CODEC.index(url[i])
 
     return result
