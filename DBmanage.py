@@ -7,6 +7,7 @@ def get_connection():
     return conn
 
 
+# find row from real URL
 def find_url(oldurl):
     conn = get_connection()
     cursor = conn.cursor()
@@ -23,8 +24,26 @@ def find_url(oldurl):
     return row[0]
 
 
+# find row from index
+def find_oldurl(index):
+    conn = get_connection()
+    cursor = conn.cursor()
+
+    sql = 'select * from oldurl where id=%s;'
+    cursor.execute(sql, [index])
+    row = cursor.fetchall()
+
+    conn.commit()
+
+    cursor.close()
+    conn.close()
+
+    return row[0]
+
+
 def insert_url(oldurl):
     try:
+        # if URL exists, stop insertion
         find_url(oldurl)
 
         return
@@ -42,19 +61,3 @@ def insert_url(oldurl):
 
     cursor.close()
     conn.close()
-
-
-def find_oldurl(index):
-    conn = get_connection()
-    cursor = conn.cursor()
-
-    sql = 'select * from oldurl where id=%s;'
-    cursor.execute(sql, [index])
-    row = cursor.fetchall()
-
-    conn.commit()
-
-    cursor.close()
-    conn.close()
-
-    return row[0]
