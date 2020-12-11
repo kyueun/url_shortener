@@ -1,5 +1,6 @@
 CODEC = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
 
+
 def encode(index):
     result = []
 
@@ -7,13 +8,14 @@ def encode(index):
         index, mod = divmod(index, 62)
         result.insert(0, CODEC[mod])
 
-    return ''.join(result)
+    return ''.join(result).rjust(8, CODEC[0])
+
 
 def decode(url):
     result = 0
-    str = reversed(url.split('/')[1])
+    url = url.lstrip(CODEC[0])
 
-    for i in range(len(str)):
-        result += (pow(62, i)*CODEC.index(str[i]))
+    for i in range(len(url)):
+        result += (pow(62, i)*CODEC.index(url))
 
     return result
