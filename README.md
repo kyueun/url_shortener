@@ -10,7 +10,7 @@ The format of subdomain is always 8 characters.
 $ jupyter notebook --version
 6.0.3
 $ python --version
-3.8
+3.8.3
 $ Flask --version
 1.1.2
 $ psycopg2 --version
