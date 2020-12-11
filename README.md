@@ -1,6 +1,8 @@
 # URL shortener
 
-convert URL to shortened URL
+### convert URL to shortened URL
+
+Shortened URL consists of domain and subdomain.
 
 The format of subdomain is always 8 characters.
 
@@ -15,5 +17,7 @@ $ psycopg2 --version
 2.8.6
 $ PostgreSQL --version
 2.4.1
+$ bootstrap template
+Colorlib Search Form v23
 ```
 
