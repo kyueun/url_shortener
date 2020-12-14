@@ -33,7 +33,9 @@ def result():
 
         try:
             # check if the url is valid
-            urllib.request.urlopen(value)
+            headers = {'User-Agent': 'Chrome/66.0.3359.181'}
+            req = urllib.request.Request(value, headers=headers)
+            urllib.request.urlopen(req)
 
             insert_url(value)
 
