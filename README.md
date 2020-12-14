@@ -16,7 +16,7 @@ $ Flask --version
 $ psycopg2 --version
 2.8.6
 $ PostgreSQL --version
-2.4.1
+13
 $ bootstrap template
 Colorlib Search Form v23
 ```
