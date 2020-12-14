@@ -47,11 +47,15 @@ def result():
         return render_template('index.html', value=result)
 
 
-@app.route('/<url>')
-def goto_url(url):
+@app.route('/<subdomain>')
+def goto_url(subdomain):
     try:
+        # check length of subdomain
+        if len(subdomain)!=8:
+            raise Exception
+
         # check if the url is exist in DB
-        oldurl = find_oldurl(decode(url))[1]
+        oldurl = find_oldurl(decode(subdomain))[1]
         result = redirect(oldurl)
 
     except:
